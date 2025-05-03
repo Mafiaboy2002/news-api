@@ -24,10 +24,11 @@ jobs:
 
       - name: Commit and Push updated news.json
         env:
-          TOKEN: ${{ secrets.SCRAPER_TOKEN }}  # Use your PAT stored in repo secrets
+          TOKEN: ${{ secrets.SCRAPER_TOKEN }}
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add news.json
           git commit -m "Update news.json" || echo "No changes to commit"
-          git push https://Mafiaboy2002:${TOKEN}@github.com/Mafiaboy2002/news-api.git
+          git remote set-url origin https://Mafiaboy2002:${TOKEN}@github.com/Mafiaboy2002/news-api.git
+          git push origin main
