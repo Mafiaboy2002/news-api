@@ -29,4 +29,3 @@ jobs:
           git add news.json
           git commit -m "Update news.json" || echo "No changes to commit"
           git push https://Mafiaboy2002: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@github.com/Mafiaboy2002/news-api.git
-          
