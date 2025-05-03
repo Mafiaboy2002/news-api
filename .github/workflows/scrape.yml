@@ -29,3 +29,5 @@ jobs:
           git add news.json
           git commit -m "Update news.json" || echo "No changes to commit"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.SCRAPER_TOKEN }}  # Use the secret here
