@@ -23,11 +23,11 @@ jobs:
         run: python scraper.py
 
       - name: Commit and Push updated news.json
+        env:
+          TOKEN: ${{ secrets.SCRAPER_TOKEN }}  # Use your PAT stored in repo secrets
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add news.json
           git commit -m "Update news.json" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.SCRAPER_TOKEN }}  # Use the secret here
+          git push https://Mafiaboy2002:${TOKEN}@github.com/Mafiaboy2002/news-api.git
