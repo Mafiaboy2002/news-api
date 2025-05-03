@@ -3,10 +3,11 @@ services:
     name: news-api
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.py"
+    startCommand: "gunicorn app:app"  # use production-ready server
     plan: free
 
 cronjobs:
   - name: scrape-news
     schedule: "hourly"
     command: "python scraper.py"
+    plan: free
