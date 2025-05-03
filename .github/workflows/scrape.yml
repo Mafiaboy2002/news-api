@@ -3,7 +3,7 @@ name: Run Scraper Every 20 Minutes
 on:
   schedule:
     - cron: '*/20 * * * *'  # every 20 minutes
-  workflow_dispatch:        # allows manual run
+  workflow_dispatch:
 
 jobs:
   run-scraper:
@@ -23,12 +23,9 @@ jobs:
         run: python scraper.py
 
       - name: Commit and Push updated news.json
-        env:
-          TOKEN: ${{ secrets.SCRAPER_TOKEN }}
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add news.json
           git commit -m "Update news.json" || echo "No changes to commit"
-          git remote set-url origin https://Mafiaboy2002:${TOKEN}@github.com/Mafiaboy2002/news-api.git
-          git push origin main
+          git push https://Mafiaboy2002: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@github.com/Mafiaboy2002/news-api.git
