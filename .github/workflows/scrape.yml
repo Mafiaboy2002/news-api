@@ -1,8 +1,8 @@
-name: Run Scraper Every 20 Minutes
+name: Run Scraper Every 2 Hours
 
 on:
   schedule:
-    - cron: '*/20 * * * *'  # every 20 minutes
+    - cron: '0 */2 * * *'  # Every 2 hours at minute 0
   workflow_dispatch:
 
 jobs:
